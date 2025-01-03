@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
+use App\Models\User;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('demo'); });
-Route::get('/user', function () {
-   return "User will be loaded"; 
-});
+Route::get('/user', function () {return view('user');});
+Route::get('/user/{id}', function ($id) {return "user $id";});
+Route::get('user/{id}/{new}',[UserController::class,'getUser']);
+Route::get('/course', [CourseController::class,'allCourses']);
+Route::get('course/{id}',[CourseController::class,'singleCourse']);
+
