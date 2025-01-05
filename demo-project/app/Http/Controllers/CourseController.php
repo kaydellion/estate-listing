@@ -10,7 +10,7 @@ class CourseController extends Controller
     //show all course
     public function allCourses(){
     $courses = Course::all();  // Fetch all courses
-    return view('courses.course', ['courses' => $courses]);  // Pass collection as 'courses'
+    return view('layouts.course', ['courses' => $courses]);  // Pass collection as 'courses'
     }
 
 
