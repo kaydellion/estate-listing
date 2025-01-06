@@ -17,6 +17,6 @@ class CourseController extends Controller
     //show single course
     function singleCourse($id){
     $course= Course::find($id);
-    return view('courses.single-course',['course'=>$course]);
+    return view('layouts.single-course',['course'=>$course]);
     }
 }
