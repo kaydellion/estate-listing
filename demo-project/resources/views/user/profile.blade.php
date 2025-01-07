@@ -21,6 +21,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <p>{{$user->name}}</p>
+        <p>{{faker()->name}}</p>
     </body>
 </html>

@@ -22,7 +22,7 @@ use App\Models\User;
 Route::get('/', function () { return view('home'); });
 Route::get('/unathorized', function () {return view('404');});
 Route::get('/user', function () {return view('user');});
-Route::get('/profile', function () {return view('layouts.profile');});
+Route::get('/profile', function () {return view('user.profile');});
 Route::get('/dashboard', function () {return view('layouts.home');});
 Route::get('/user/{id}', function ($id) {return "user $id";});
 Route::get('user/{id}/{new}',[UserController::class,'getUser']);
