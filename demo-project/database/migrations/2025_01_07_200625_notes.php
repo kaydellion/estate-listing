@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('course', function (Blueprint $table) {
-            $table->bigIncrements('course_id'); // Auto-incrementing primary key
-            $table->string('course');
-            $table->string('description');
+        Schema::create('saved_notes', function (Blueprint $table) {
+            $table->bigIncrements('note_id'); // Auto-incrementing primary key
+            $table->string('note_title');
+            $table->string('content');
             $table->timestamp('created_at');
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course');
+        Schema::dropIfExists('saved_notes');
     }
 };
