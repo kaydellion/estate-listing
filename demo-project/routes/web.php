@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -26,6 +27,8 @@ Route::get('/profile', function () {return view('user.profile');});
 Route::get('/dashboard', function () {return view('layouts.home');});
 Route::get('/user/{id}', function ($id) {return "user $id";});
 Route::get('user/{id}/{new}',[UserController::class,'getUser']);
+Route::get('/notes', [NotesController::class,'allNotes']);
+Route::get('note/{id}',[NotesController::class,'singleNote']);
 Route::get('/course', [CourseController::class,'allCourses']);
 Route::get('course/{id}',[CourseController::class,'singleCourse'])->middleware('checkheaders');
 
