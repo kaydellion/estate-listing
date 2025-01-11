@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $note->note_title}}</h5>
                     <p class="card-text">{{ $note->created_at}}</p>
+                    <p>This is a big step for the future</p>
                     <p><a href="{{ url('note/' . $note->note_id) }}" class="btn btn-primary">View Note</a></p>
                 </div>
             </div>
