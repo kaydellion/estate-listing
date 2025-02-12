@@ -6,6 +6,9 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
+
 
 
 
@@ -31,6 +34,13 @@ Route::get('/notes', [NotesController::class,'allNotes']);
 Route::get('note/{id}',[NotesController::class,'singleNote']);
 Route::get('/course', [CourseController::class,'allCourses']);
 Route::get('course/{id}',[CourseController::class,'singleCourse'])->middleware('checkheaders');
+Route::post('/pay', [PaymentController::class, 'checkout']);
+Route::apiResource('products', ProductController::class);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin', function () {return 'Admin Panel';});
+});
+
 
 
 Auth::routes();

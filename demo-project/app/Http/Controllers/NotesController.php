@@ -18,4 +18,5 @@ class NotesController extends Controller
         $notes = Notes::all();  // Fetch all courses
         return view('layouts.notes', ['notes' => $notes]);  // Pass collection as 'courses'
         }
+        
 }

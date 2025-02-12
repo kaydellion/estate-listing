@@ -24,6 +24,11 @@ class CourseApiController extends Controller
         $course->course = $validatedData['course'];
         $course->description = $validatedData['description'];
         $course->save();
+        //Uploading file
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('uploads');
+            return "File uploaded to: " . $path;
+        }        
         return response()->json(['message'=>'Course has been added succesfully','course'=>$course],201);
     }
 
